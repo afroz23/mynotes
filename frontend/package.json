@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://mynotes-backend-6dzxp3uwq-afroz23.vercel.app/",
+  "proxy": "http://127.0.0.1:8800",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
