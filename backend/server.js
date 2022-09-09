@@ -16,7 +16,7 @@ connectDB();
 const app = express(); // main thing
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://mynotes-afroz.vercel.app/",
   credentials: true,
   optionSuccessStatus: 200,
 };
