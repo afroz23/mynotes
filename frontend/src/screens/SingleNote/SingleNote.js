@@ -31,7 +31,9 @@ function SingleNote({ match, history }) {
 
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axios.get(`/api/notes/${match.params.id}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/notes/${match.params.id}`
+      );
 
       setTitle(data.title);
       setContent(data.content);
