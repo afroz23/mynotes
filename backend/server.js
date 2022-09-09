@@ -14,7 +14,15 @@ dotenv.config();
 connectDB();
 
 const app = express(); // main thing
-app.use(cors());
+
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json()); // to accept json data
 
 app.use("/api/notes", noteRoutes);
