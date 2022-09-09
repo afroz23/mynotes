@@ -15,13 +15,6 @@ connectDB();
 
 const app = express(); // main thing
 app.use(express.json()); // to accept json data
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
 app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);
 
