@@ -14,17 +14,14 @@ dotenv.config();
 connectDB();
 
 const app = express(); // main thing
-
+app.use(express.json()); // to accept json data
 const corsOptions = {
-  origin: "https://mynotes-afroz.vercel.app/",
+  origin: "*",
   credentials: true,
   optionSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
-
-app.use(express.json()); // to accept json data
-
 app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);
 
@@ -32,10 +29,12 @@ app.use("/api/users", userRoutes);
 const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/build")));
+  app.use(express.static(path.join(__dirname, "..", "frontend/build")));
 
   app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+    res.sendFile(
+      path.resolve(__dirname, "..", "frontend", "build", "index.html")
+    )
   );
 } else {
   app.get("/", (req, res) => {
