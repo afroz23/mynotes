@@ -1,3 +1,3 @@
 # My Notes
 
-This application help you to store all your notes in an specific tag.
+This web application will help you to store all your notes in a specific tag.
