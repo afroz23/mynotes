@@ -5,11 +5,11 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/server",
-    "server": "nodemon backend/server",
+    "start": "node server",
+    "server": "nodemon server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=fast npm install --prefix frontend && npm run build --prefix frontend",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=fast npm install --prefix frontend && npm run build --prefix frontend",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d"
   },
@@ -18,6 +18,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
