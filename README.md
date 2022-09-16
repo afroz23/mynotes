@@ -60,7 +60,7 @@ This web application will help you to store all your notes in a Markdown fashion
 
 ## Setup
 
-- client side
-  Go to frontend directory and run `npm i && npm start` command.
-- server side
-  Go to root directory and run `npm i && npm start` command.
+- client side \
+ Go to frontend directory and run `npm i && npm start` command.
+- server side\
+ Go to root directory and run `npm i && npm start` command.
