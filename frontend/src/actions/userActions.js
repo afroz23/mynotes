@@ -13,7 +13,6 @@ import {
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
-  console.log("url", process.env.REACT_APP_API_URL);
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
 
