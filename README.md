@@ -15,13 +15,6 @@ This web application will help you to store all your notes in a Markdown fashion
 
 - One Safe place for all your notes.
 
-## Features
-
-- Great design and functionality.
-- User can share there Interview Experience.
-- User can like, delete and edit there exprience.
-- If you try to add interview experience with blank fields then you will get error accordingly.
-
 
 ## Home page
 ![home](./Screenshots/homePage.png)
