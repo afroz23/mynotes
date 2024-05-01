@@ -10,73 +10,73 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
 } from "../constants/userConstants";
-import axios from "axios";
+import axiosInstance from '../services/axiosInstance';
 
-export const login = (email, password) => async (dispatch) => {
-  try {
-    dispatch({ type: USER_LOGIN_REQUEST });
+export const login = (email, password) => async dispatch => {
+	try {
+		dispatch({ type: USER_LOGIN_REQUEST });
 
-    const config = {
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
+		const config = {
+			headers: {
+				'Content-type': 'application/json'
+			}
+		};
 
-    const { data } = await axios.post(
-      `/api/users/login`,
-      { email, password },
-      config
-    );
+		const { data } = await axiosInstance.post(
+			`/api/users/login`,
+			{ email, password },
+			config
+		);
 
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+		dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
+		localStorage.setItem('userInfo', JSON.stringify(data));
+	} catch (error) {
+		dispatch({
+			type: USER_LOGIN_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message
+		});
+	}
 };
 
-export const logout = () => async (dispatch) => {
-  localStorage.removeItem("userInfo");
-  dispatch({ type: USER_LOGOUT });
+export const logout = () => async dispatch => {
+	localStorage.removeItem('userInfo');
+	dispatch({ type: USER_LOGOUT });
 };
 
-export const register = (name, email, password, pic) => async (dispatch) => {
-  try {
-    dispatch({ type: USER_REGISTER_REQUEST });
+export const register = (name, email, password, pic) => async dispatch => {
+	try {
+		dispatch({ type: USER_REGISTER_REQUEST });
 
-    const config = {
-      headers: {
-        "Content-type": "application/json",
-      },
-    };
+		const config = {
+			headers: {
+				'Content-type': 'application/json'
+			}
+		};
 
-    const { data } = await axios.post(
-      `/api/users`,
-      { name, pic, email, password },
-      config
-    );
+		const { data } = await axiosInstance.post(
+			`/api/users`,
+			{ name, pic, email, password },
+			config
+		);
 
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+		dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
 
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+		dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_REGISTER_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
+		localStorage.setItem('userInfo', JSON.stringify(data));
+	} catch (error) {
+		dispatch({
+			type: USER_REGISTER_FAIL,
+			payload:
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message
+		});
+	}
 };
 
 export const updateProfile = (user) => async (dispatch, getState) => {
@@ -94,7 +94,11 @@ export const updateProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/users/profile`, user, config);
+    const { data } = await axiosInstance.post(
+			`/api/users/profile`,
+			user,
+			config
+		);
 
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
 
