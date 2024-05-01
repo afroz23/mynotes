@@ -3,7 +3,7 @@
 This web application will help you to store all your notes in a Markdown fashion in a specific tag.
 
 ## Deployment
-[Live Link](https://notes-afroz23.vercel.app/)
+[Live Link](https://mynotes-afroz23s-projects.vercel.app/)
 
 ## Features
 - User can Create, Delete, Edit and Update Note.
